@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.overlayDiv {
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+
+  .slider-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  /* Add more styles as needed for your content */
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }

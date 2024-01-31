@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "img": "https://res.cloudinary.com/dqyusvzi9/image/upload/v1706520211/qmvfraydnclijyrylece.png",
+        "title": "Light bright airy stylish apt & safe peaceful stay",
+        "others_info": {
+            "guests": 4,
+            "bedrooms": 2,
+            "beds": 2,
+            "baths": 2
+        },
+        "description": "Wif Air conditioning Kitchen",
+        "cancellationPolicy": "Flexible cancellation available",
+        "rating": 4.5,
+        "price": "$34 / night"
+    },
+    {
+        "id": "2",
+        "img": "https://res.cloudinary.com/dqyusvzi9/image/upload/v1706520211/aakutv2xlgegecezzyxl.png",
+        "title": "Apartment in Lost Panorama",
+        "others_info": {
+            "guests": 6,
+            "bedrooms": 2,
+            "beds": 2,
+            "baths": 2
+        },
+        "description": "Wif Air conditioning Kitchen",
+        "cancellationPolicy": "Flexible cancellation available",
+        "rating": 4.5,
+        "price": "$52 /night"
+    },
+    {
+        "id": "3",
+        "img": "https://res.cloudinary.com/dqyusvzi9/image/upload/v1706520212/q9duzaovy8gkqws85e1x.png",
+        "title": "AR Lounge & Pool (r&r + b&b)",
+        "others_info": {
+            "guests": 3,
+            "bedrooms": 1,
+            "beds": 1,
+            "baths": 1
+        },
+        "description": "Wif Air conditioning Kitchen",
+        "cancellationPolicy": "Flexible cancellation available",
+        "rating": 4.5,
+        "price": "$44 / night"
+    }
+]
