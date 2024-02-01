@@ -5,21 +5,25 @@ import { FcGoogle } from "react-icons/fc";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
 
     const [registerError, setRegisterError] = useState('');
     const [success, setSuccess] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+
  
     const handleRegister = e =>{
 
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password);
+        const accepted = e.target.terms.checked;
+        console.log(email, password, accepted);
 
-        // reset error 
+        // reset error & success msg
 
         setRegisterError('');
         setSuccess('');
@@ -31,10 +35,21 @@ const Register = () => {
             return;
         }
 
-        else if (!/A-Z/.test(password)){
+        else if (!/[A-Z]/.test(password)){
             setRegisterError('your password should have at least one upper case characters')
             return;
         }
+
+        //  accepted terms & condition
+
+        else if (!accepted){
+            setRegisterError('please accept our terms & conditions')
+            return;
+        }
+
+
+          // show password
+
 
         // create user 
 
@@ -88,12 +103,29 @@ const Register = () => {
                         </div>
 
                         <div className="relative h-11 w-full min-w-[200px] mb-4">
-                            <input placeholder="Enter your password" type="password" name="password"
+                            <div className="flex relative">
+
+                            <input placeholder="Enter your password" name="password" type={showPassword ? "text" : "password"}
                                 className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-gray-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 placeholder:opacity-0 focus:placeholder:opacity-100" />
+                                <br />
+                                 <span className="absolute right-0 top-0" onClick={()=>setShowPassword(!showPassword)}>
+                                    {
+                                        showPassword? <FaEyeSlash/> : <FaEye/>
+                                    }
+                                </span>
+                            </div>
                             <label
                                 className="after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] leading-tight text-xl font-semibold text-[#403F3F] transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-gray-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-900 peer-focus:after:scale-x-100 peer-focus:after:border-gray-900 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                                Password
                             </label>
+                        </div>
+
+                        {/* terms & condition */}
+
+                        <div className="flex gap-4">
+
+                        <input type="checkbox" name="terms" id="terms" />
+                        <label htmlFor="terms">Accept our <Link>terms & conditions</Link></label>
                         </div>
 
                         {/* <div className="relative h-11 w-full min-w-[200px] mb-4">
